@@ -3,7 +3,7 @@
 
 Name:			xorg-x11-drv-intel	
 Version:		2.99.917	
-Release:		42
+Release:		43
 Summary:		Xorg X11 Intel video driver
 License:		MIT
 URL:			http://www.x.org
@@ -15,7 +15,7 @@ BuildRequires:	autoconf automake libtool xorg-x11-server-devel libX11-devel libX
 BuildRequires:  libXcursor-devel libXdamage-devel libXext-devel libXfixes-devel libXrandr-devel
 BuildRequires:  libXrender-devel libXtst-devel libXvMC-devel libXfont2-devel mesa-libGL-devel
 BuildRequires:  libdrm-devel kernel-headers libudev-devel libxcb-devel xcb-util-devel python3
-BuildRequires:	cairo-devel libXScrnSaver-devel libXScrnSaver libXext-devel pixman-devel
+BuildRequires:	cairo-devel libXScrnSaver-devel libXScrnSaver libXext-devel pixman-devel libXv-devel
 
 Requires:		Xorg %(xserver-sdk-abi-requires ansic) polkit
 Requires:		Xorg %(xserver-sdk-abi-requires videodrv)
@@ -61,5 +61,8 @@ rm -f %{buildroot}%{_libdir}/libI*XvMC.so
 %{_mandir}/man4/i*
 
 %changelog
-* Tue Mar 10 2020 songnannan <songnannan2@huawei.com> - 2.99.9.917-43
+* Tue Aug 18 2020 lingsheng <lingsheng@huawei.com> - 2.99.917-44
+- Add buildrequire libXv-devel to fix build
+
+* Tue Mar 10 2020 songnannan <songnannan2@huawei.com> - 2.99.917-43
 - Package init

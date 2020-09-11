@@ -3,11 +3,11 @@
 
 Name:			xorg-x11-drv-intel	
 Version:		2.99.917	
-Release:		42
+Release:		44
 Summary:		Xorg X11 Intel video driver
 License:		MIT
 URL:			http://www.x.org
-Source0:		https://xorg.freedesktop.org/archive/individual/driver/xf86-video-intel-20180618.tar.bz2
+Source0:		https://src.fedoraproject.org/repo/pkgs/xorg-x11-drv-intel/xf86-video-intel-20180618.tar.bz2/sha512/50d7f8ec10db8200700c2de804c21987c903b347615c004e9f5334c1f2b189fafdc049469e1491d651bbcd8df2968c1247d0f4d2a3dc6c7d885a40ad577a5101/xf86-video-intel-20180618.tar.bz2
 Source1:    	make-git-snapshot.sh
 
 ExclusiveArch:  %{ix86} x86_64 ia64
@@ -61,5 +61,11 @@ rm -f %{buildroot}%{_libdir}/libI*XvMC.so
 %{_mandir}/man4/i*
 
 %changelog
+* Fri Sep 11 2020 lunankun <lunankun@huawei.com> - 2.99.917-44
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:fix source0 url
+
 * Tue Mar 10 2020 songnannan <songnannan2@huawei.com> - 2.99.9.917-43
 - Package init

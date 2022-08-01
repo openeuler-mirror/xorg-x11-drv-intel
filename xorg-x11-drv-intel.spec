@@ -3,7 +3,7 @@
 
 Name:			xorg-x11-drv-intel	
 Version:		2.99.917	
-Release:		42
+Release:		43
 Summary:		Xorg X11 Intel video driver
 License:		MIT
 URL:			http://www.x.org
@@ -11,7 +11,7 @@ Source0:		https://xorg.freedesktop.org/archive/individual/driver/xf86-video-inte
 Source1:    	make-git-snapshot.sh
 
 ExclusiveArch:  %{ix86} x86_64 ia64
-BuildRequires:	autoconf automake libtool xorg-x11-server-devel libX11-devel libXinerama-devel
+BuildRequires:	autoconf automake make libtool xorg-x11-server-devel libX11-devel libXinerama-devel
 BuildRequires:  libXcursor-devel libXdamage-devel libXext-devel libXfixes-devel libXrandr-devel
 BuildRequires:  libXrender-devel libXtst-devel libXvMC-devel libXfont2-devel mesa-libGL-devel
 BuildRequires:  libdrm-devel kernel-headers libudev-devel libxcb-devel xcb-util-devel python3
@@ -61,5 +61,11 @@ rm -f %{buildroot}%{_libdir}/libI*XvMC.so
 %{_mandir}/man4/i*
 
 %changelog
-* Tue Mar 10 2020 songnannan <songnannan2@huawei.com> - 2.99.9.917-43
+* Mon Aug 01 2022 zhouyihang <zhouyihang3@h-partners.com> - 2.99.917-43
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:add buildrequire make
+
+* Tue Mar 10 2020 songnannan <songnannan2@huawei.com> - 2.99.917-42
 - Package init

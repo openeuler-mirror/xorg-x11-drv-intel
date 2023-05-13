@@ -3,7 +3,7 @@
 
 Name:			xorg-x11-drv-intel	
 Version:		2.99.917	
-Release:		46
+Release:		47
 Summary:		Xorg X11 Intel video driver
 License:		MIT
 URL:			http://www.x.org
@@ -24,6 +24,7 @@ Patch0000:    	intel-gcc-pr65873.patch
 Patch0001:     	0001-sna-Avoid-clobbering-output-physical-size-with-xf86O.patch
 Patch0002:     	0001-Fix-build-on-F28-and-later.patch
 Patch0003:     	0001-Fix-build-on-i686.patch
+Patch0004:     	fix-clang.patch
 
 %description
 X.Org X11 Intel video driver.
@@ -34,6 +35,10 @@ X.Org X11 Intel video driver.
 %autosetup -n xf86-video-intel-20180618 -p1
 
 %build
+%if "%toolchain" == "clang"
+	export CFLAGS="$CFLAGS -Wno-implicit-function-declaration"
+	export CXXFLAGS="$CXXFLAGS -Wno-implicit-function-declaration"
+%endif
 autoreconf -f -i -v
 %configure --enable-kms-only --with-default-dri=3 --enable-tools
 %make_build  V=1
@@ -61,6 +66,9 @@ rm -f %{buildroot}%{_libdir}/libI*XvMC.so
 %{_mandir}/man4/i*
 
 %changelog
+* Thu May 11 2023 yoo <sunyuechi@iscas.ac.cn> - 2.99.917-47
+- fix clang build error
+
 * Mon Aug 01 2022 zhouyihang <zhouyihang3@h-partners.com> - 2.99.917-46
 - Type:bugfix
 - ID:NA
